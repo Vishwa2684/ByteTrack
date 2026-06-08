@@ -73,8 +73,10 @@ def make_parser():
 
 class Predictor(object):
     def __init__(self, args):
-        self.rgb_means = (0.485, 0.456, 0.406)
-        self.std = (0.229, 0.224, 0.225)
+        self.rgb_means = None
+        # self.rgb_means = (0.485, 0.456, 0.406)
+        self.std = None
+        # self.std = (0.229, 0.224, 0.225)
         self.args = args
         self.session = onnxruntime.InferenceSession(args.model)
         self.input_shape = tuple(map(int, args.input_shape.split(',')))
